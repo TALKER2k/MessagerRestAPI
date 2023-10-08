@@ -16,6 +16,7 @@ import ru.relex.security.jwt.JwtUtils;
 import ru.relex.security.service.Impl.UserDetailsImpl;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -91,13 +92,13 @@ public class UserController {
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             user.setActive("No active");
+            user.setLastActivityTime(LocalDateTime.now());
             userRepository.save(user);
             jwtUtils.getCleanJwtCookie();
             return ResponseEntity.ok(new MessageResponse("You've successfully delete account!"));
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(new MessageResponse("You've successfully delete account!"));
+                    .body(new MessageResponse("Unknown error!"));
         }
-
     }
 }
