@@ -18,8 +18,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Boolean existsByEmail(String email);
 
-//    List<User> findByLastActivityTimeBefore(LocalDateTime localDateTime);
-
     @Query("SELECT u FROM User u WHERE u.lastActivityTime < :beforeTime AND u.active = 'No active'")
     List<User> findInactiveUsers(@Param("beforeTime") LocalDateTime beforeTime);
 }
