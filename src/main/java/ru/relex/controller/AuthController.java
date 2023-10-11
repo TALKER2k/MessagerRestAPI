@@ -30,7 +30,7 @@ import ru.relex.payload.response.UserInfoResponse;
 import ru.relex.repository.RoleRepository;
 import ru.relex.repository.UserRepository;
 import ru.relex.security.jwt.JwtUtils;
-import ru.relex.security.service.Impl.UserDetailsImpl;
+import ru.relex.service.Impl.UserDetailsImpl;
 import javax.validation.Valid;
 
 @CrossOrigin(origins = "*", maxAge = 3600)

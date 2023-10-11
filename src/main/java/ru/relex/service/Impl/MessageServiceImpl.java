@@ -1,4 +1,4 @@
-package ru.relex.security.service.Impl;
+package ru.relex.service.Impl;
 
 import org.springframework.stereotype.Service;
 import ru.relex.entity.Conversation;
@@ -7,7 +7,7 @@ import ru.relex.entity.User;
 import ru.relex.repository.ConversationRepository;
 import ru.relex.repository.MessageRepository;
 import ru.relex.repository.UserRepository;
-import ru.relex.security.service.MessageService;
+import ru.relex.service.MessageService;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -63,6 +63,7 @@ public class MessageServiceImpl implements MessageService {
         messageRepository.save(newMessage);
     }
 
+    @Override
     public List<Message> getAllList(User userSender, User userRecipient) {
         if (userSender.getId() > userRecipient.getId()) {
             User temp = userSender;
@@ -72,6 +73,7 @@ public class MessageServiceImpl implements MessageService {
         return messageRepository.findByConversationId(conversationRepository.findByFirstIdAndSecondId(userSender, userRecipient).get(0).getId());
     }
 
+    @Override
     public void deleteAllList(User userSender, User userRecipient) {
         if (userSender.getId() > userRecipient.getId()) {
             User temp = userSender;

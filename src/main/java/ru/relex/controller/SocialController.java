@@ -13,8 +13,8 @@ import ru.relex.payload.request.MessageRequest;
 import ru.relex.payload.request.MessageShowRequest;
 import ru.relex.payload.response.MessageResponse;
 import ru.relex.repository.UserRepository;
-import ru.relex.security.service.Impl.MessageServiceImpl;
-import ru.relex.security.service.Impl.UserDetailsImpl;
+import ru.relex.service.Impl.MessageServiceImpl;
+import ru.relex.service.Impl.UserDetailsImpl;
 
 import javax.validation.Valid;
 import java.util.ArrayList;

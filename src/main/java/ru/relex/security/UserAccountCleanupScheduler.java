@@ -1,4 +1,4 @@
-package ru.relex.security.service;
+package ru.relex.security;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

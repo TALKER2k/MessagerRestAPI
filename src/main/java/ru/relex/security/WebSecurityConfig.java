@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import ru.relex.security.jwt.AuthEntryPointJwt;
 import ru.relex.security.jwt.AuthTokenFilter;
-import ru.relex.security.service.Impl.UserDetailsServiceImpl;
+import ru.relex.service.Impl.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity

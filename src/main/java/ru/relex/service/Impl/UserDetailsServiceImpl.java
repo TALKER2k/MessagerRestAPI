@@ -1,4 +1,4 @@
-package ru.relex.security.service.Impl;
+package ru.relex.service.Impl;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

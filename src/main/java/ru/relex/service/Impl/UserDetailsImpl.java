@@ -1,4 +1,4 @@
-package ru.relex.security.service.Impl;
+package ru.relex.service.Impl;
 
 import java.util.Collection;
 import java.util.List;

@@ -13,7 +13,7 @@ import ru.relex.payload.request.ChangeProfileRequest;
 import ru.relex.payload.response.MessageResponse;
 import ru.relex.repository.UserRepository;
 import ru.relex.security.jwt.JwtUtils;
-import ru.relex.security.service.Impl.UserDetailsImpl;
+import ru.relex.service.Impl.UserDetailsImpl;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;

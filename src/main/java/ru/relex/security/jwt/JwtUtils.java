@@ -13,7 +13,7 @@ import org.springframework.web.util.WebUtils;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import ru.relex.security.service.Impl.UserDetailsImpl;
+import ru.relex.service.Impl.UserDetailsImpl;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
