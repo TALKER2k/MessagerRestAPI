@@ -87,6 +87,8 @@ public class SocialController {
 
     }
 
+    @PostMapping("")
+
     @MessageMapping("/chat")
     @SendTo("/topic/chat")
     public MessageRequest processMessageFromClient(MessageRequest messageRequest) {

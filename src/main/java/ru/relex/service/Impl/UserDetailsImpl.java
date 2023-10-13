@@ -1,5 +1,6 @@
 package ru.relex.service.Impl;
 
+import java.io.Serial;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -16,6 +17,7 @@ import ru.relex.entity.User;
 @Getter
 @Setter
 public class UserDetailsImpl implements UserDetails {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private Long id;
