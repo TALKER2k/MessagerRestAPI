@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.relex.entity.ERole;
+import ru.relex.entity.Message;
 import ru.relex.entity.Role;
 import ru.relex.entity.User;
 import ru.relex.payload.request.LoginRequest;
+import ru.relex.payload.request.MessageShowRequest;
 import ru.relex.payload.request.SignupRequest;
 import ru.relex.payload.response.MessageResponse;
 import ru.relex.payload.response.UserInfoResponse;
@@ -156,20 +158,18 @@ public class AuthController {
                 .body(new MessageResponse("You've been signed out!"));
     }
 
-    @PostMapping("/signin/activate")
-    public ResponseEntity<MessageResponse> activateUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        Optional<User> userOptional = userRepository.findById(userDetails.getId());
+    @PostMapping("/activate")
+    public ResponseEntity<MessageResponse> activateUser(@Valid @RequestBody MessageShowRequest messageShowRequest) {
+        Optional<User> userOptional = userRepository.findByUsername(messageShowRequest.getUsername());
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             user.setActive("Active");
             userRepository.save(user);
-            jwtUtils.getCleanJwtCookie();
-            return ResponseEntity.ok(new MessageResponse("You've successfully respawn!"));
+            return ResponseEntity.ok()
+                    .body(new MessageResponse("You've successfully respawn account!"));
         } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(new MessageResponse("Unknown error!"));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new MessageResponse("Unknown Error!"));
         }
     }
 }

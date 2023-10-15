@@ -9,6 +9,7 @@ import ru.relex.repository.MessageRepository;
 import ru.relex.repository.UserRepository;
 import ru.relex.service.MessageService;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -26,6 +27,7 @@ public class MessageServiceImpl implements MessageService {
         this.messageRepository = messageRepository;
     }
 
+    @Transactional
     @Override
     public void addMessage(User senderUser, User recipientUser, String message) {
         if (message == null || message.isEmpty())
@@ -73,6 +75,7 @@ public class MessageServiceImpl implements MessageService {
         return messageRepository.findByConversationId(conversationRepository.findByFirstIdAndSecondId(userSender, userRecipient).get(0).getId());
     }
 
+    @Transactional
     @Override
     public void deleteAllList(User userSender, User userRecipient) {
         if (userSender.getId() > userRecipient.getId()) {

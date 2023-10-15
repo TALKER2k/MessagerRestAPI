@@ -9,8 +9,6 @@ import lombok.Setter;
 @Setter
 public class ChangePasswordRequest {
     @NotBlank
-    private String username;
-    @NotBlank
     private String newPassword;
 
 }

@@ -1,6 +1,8 @@
 package ru.relex.controller;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -94,8 +96,9 @@ public class UserController {
             user.setActive("No active");
             user.setLastActivityTime(LocalDateTime.now());
             userRepository.save(user);
-            jwtUtils.getCleanJwtCookie();
-            return ResponseEntity.ok(new MessageResponse("You've successfully delete account!"));
+            ResponseCookie cookie = jwtUtils.getCleanJwtCookie();
+            return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString())
+                    .body(new MessageResponse("You've successfully delete account!"));
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(new MessageResponse("Unknown error!"));
