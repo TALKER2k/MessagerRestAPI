@@ -23,44 +23,17 @@ public class RecommendsServiceImpl<T extends Enum<T>> implements RecommendsServi
 
     public List<Enum<T>> init(User user) {
         List<Enum<T>> list = new ArrayList<>();
-        list.add((Enum<T>) setHobby(user));
-        list.add((Enum<T>) setCountry(user));
-        list.add((Enum<T>) setProf(user));
-        list.add((Enum<T>) setCity(user));
+        list.add((Enum<T>) findEnum(user.getHobby(), Hobby.values()));
+        list.add((Enum<T>) findEnum(user.getCountry(), Country.values()));
+        list.add((Enum<T>) findEnum(user.getProfession(), Profession.values()));
+        list.add((Enum<T>) findEnum(user.getCity(), City.values()));
 
         return list;
     }
 
-    private Hobby setHobby(User user) {
-        for (Hobby profession : Hobby.values()) {
-            if (user.getHobby().equals(profession.name())) {
-                return profession;
-            }
-        }
-        return null;
-    }
-
-    private Country setCountry(User user) {
-        for (Country profession : Country.values()) {
-            if (user.getCountry().equals(profession.name())) {
-                return profession;
-            }
-        }
-        return null;
-    }
-
-    private City setCity(User user) {
-        for (City profession : City.values()) {
-            if (user.getCity().equals(profession.name())) {
-                return profession;
-            }
-        }
-        return null;
-    }
-
-    private Profession setProf(User user) {
-        for (Profession profession : Profession.values()) {
-            if (user.getProfession().equals(profession.name())) {
+    private <E extends Enum<E>> Enum<E> findEnum(String value, E[] values) {
+        for (E profession : values) {
+            if (value.equals(profession.name())) {
                 return profession;
             }
         }
