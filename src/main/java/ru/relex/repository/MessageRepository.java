@@ -2,8 +2,8 @@ package ru.relex.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.relex.entity.Message;
-import ru.relex.entity.User;
+import ru.relex.models.Message;
+import ru.relex.models.User;
 
 import java.util.*;
 

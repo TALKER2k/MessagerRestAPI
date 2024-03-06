@@ -1,7 +1,7 @@
 package ru.relex.service;
 
-import ru.relex.entity.Message;
-import ru.relex.entity.User;
+import ru.relex.models.Message;
+import ru.relex.models.User;
 
 import java.util.List;
 

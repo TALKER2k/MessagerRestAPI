@@ -4,6 +4,7 @@ import java.io.Serial;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import lombok.Getter;
@@ -12,7 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import ru.relex.entity.User;
+import ru.relex.models.User;
 
 @Getter
 @Setter
@@ -35,8 +36,16 @@ public class UserDetailsImpl implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
+    private String hobby;
+    private String profession;
+    private String city;
+    private String country;
+
+    private Set<User> friends;
+
     public UserDetailsImpl(Long id, String username, String firstname, String lastname, String email, String password,
-                           Collection<? extends GrantedAuthority> authorities) {
+                           Collection<? extends GrantedAuthority> authorities, String hobby, String profession,
+                           String city, String country, Set<User> friends) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;
@@ -44,6 +53,11 @@ public class UserDetailsImpl implements UserDetails {
         this.email = email;
         this.password = password;
         this.authorities = authorities;
+        this.city=city;
+        this.hobby=hobby;
+        this.country=country;
+        this.profession=profession;
+        this.friends=friends;
     }
 
     public static UserDetailsImpl build(User user) {
@@ -58,7 +72,12 @@ public class UserDetailsImpl implements UserDetails {
                 user.getLastname(),
                 user.getEmail(),
                 user.getPassword(),
-                authorities);
+                authorities,
+                user.getHobby(),
+                user.getProfession(),
+                user.getCity(),
+                user.getCountry(),
+                user.getFriends());
     }
 
     @Override

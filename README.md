@@ -68,10 +68,14 @@ POST http://localhost:8089/api/profile/settings/password
 ```http
 POST http://localhost:8089/api/profile/settings/main
 {
-    "username": "user",
+    "username": "",
     "firstname": "",
     "lastname": "",
-    "email": ""
+    "email": "",
+    "hobby": "FOOTBALL",
+    "country": "RUSSIA",
+    "city": "MOSCOW",
+    "profession": "DOCTOR"
 }
 ```
 

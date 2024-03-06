@@ -9,7 +9,11 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import ru.relex.entity.User;
+import ru.relex.Enums.City;
+import ru.relex.Enums.Country;
+import ru.relex.Enums.Hobby;
+import ru.relex.Enums.Profession;
+import ru.relex.models.User;
 import ru.relex.payload.request.ChangePasswordRequest;
 import ru.relex.payload.request.ChangeProfileRequest;
 import ru.relex.payload.response.MessageResponse;
@@ -74,6 +78,18 @@ public class UserController {
             }
             if (!("".equals(profileRequest.getLastname()))) {
                 user.setLastname(profileRequest.getLastname());
+            }
+            if (!("".equals(profileRequest.getCity()))) {
+                user.setCity(profileRequest.getCity());
+            }
+            if (!("".equals(profileRequest.getCountry()))) {
+                user.setCountry(profileRequest.getCountry());
+            }
+            if (!("".equals(profileRequest.getHobby()))) {
+                user.setHobby(profileRequest.getHobby());
+            }
+            if (!("".equals(profileRequest.getProfession()))) {
+                user.setProfession(profileRequest.getProfession());
             }
             userRepository.save(user);
             if (flag) {

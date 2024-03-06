@@ -2,10 +2,9 @@ package ru.relex.security;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import ru.relex.entity.User;
+import ru.relex.models.User;
 import ru.relex.repository.ConversationRepository;
 import ru.relex.repository.MessageRepository;
-import ru.relex.repository.RoleRepository;
 import ru.relex.repository.UserRepository;
 
 import javax.transaction.Transactional;

@@ -1,9 +1,9 @@
 package ru.relex.service.Impl;
 
 import org.springframework.stereotype.Service;
-import ru.relex.entity.Conversation;
-import ru.relex.entity.Message;
-import ru.relex.entity.User;
+import ru.relex.models.Conversation;
+import ru.relex.models.Message;
+import ru.relex.models.User;
 import ru.relex.repository.ConversationRepository;
 import ru.relex.repository.MessageRepository;
 import ru.relex.repository.UserRepository;

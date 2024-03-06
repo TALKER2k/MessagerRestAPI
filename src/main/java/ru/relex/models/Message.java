@@ -1,4 +1,4 @@
-package ru.relex.entity;
+package ru.relex.models;
 
 import lombok.Getter;
 import lombok.Setter;

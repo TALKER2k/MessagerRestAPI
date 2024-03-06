@@ -8,8 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import ru.relex.entity.Message;
-import ru.relex.entity.User;
+import ru.relex.models.Message;
 import ru.relex.payload.request.MessageRequest;
 import ru.relex.payload.request.MessageShowRequest;
 import ru.relex.payload.response.MessageResponse;
@@ -20,7 +19,6 @@ import ru.relex.service.Impl.UserDetailsImpl;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
