@@ -1,4 +1,4 @@
-package ru.relex.Enums;
+package ru.relex.enums;
 
 public enum City {
     MOSCOW(3), VORONEZH(4.5), PITER(2.2), KIEV(12);

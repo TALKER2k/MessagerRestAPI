@@ -23,7 +23,7 @@ POST http://localhost:8089/api/auth/signup
     "email": "userTest@mail.com",
     "password": "12345678"
 }
-
+```
 ### Регистрация пользователя
 ```http
 POST http://localhost:8089/api/auth/signup

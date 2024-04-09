@@ -1,4 +1,4 @@
-package ru.relex.Enums;
+package ru.relex.enums;
 
 public enum Profession {
     DEVELOPER(4), DOCTOR(12), TEACHER(13.5), CONSULTANT(7);

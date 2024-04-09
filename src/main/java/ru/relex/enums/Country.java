@@ -1,4 +1,4 @@
-package ru.relex.Enums;
+package ru.relex.enums;
 
 public enum Country {
     RUSSIA(1), KAZAKHSTAN(4.6), UKRAIN(1.5), USA(9);

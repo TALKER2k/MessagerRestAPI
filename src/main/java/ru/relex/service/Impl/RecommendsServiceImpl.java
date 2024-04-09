@@ -1,10 +1,10 @@
 package ru.relex.service.Impl;
 
 import org.springframework.stereotype.Service;
-import ru.relex.Enums.City;
-import ru.relex.Enums.Country;
-import ru.relex.Enums.Hobby;
-import ru.relex.Enums.Profession;
+import ru.relex.enums.City;
+import ru.relex.enums.Country;
+import ru.relex.enums.Hobby;
+import ru.relex.enums.Profession;
 import ru.relex.models.User;
 import ru.relex.repository.UserRepository;
 import ru.relex.service.RecommendsService;

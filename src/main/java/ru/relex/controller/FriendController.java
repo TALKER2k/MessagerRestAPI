@@ -1,17 +1,13 @@
 package ru.relex.controller;
 
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import ru.relex.models.User;
 import ru.relex.payload.request.AddFriendRequest;
 import ru.relex.service.FriendService;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Set;
 
 @RestController
