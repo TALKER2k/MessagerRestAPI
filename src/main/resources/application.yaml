@@ -1,0 +1,47 @@
+server:
+  port: 8080
+
+relex:
+  app:
+    jwtCookieName: relexCompany
+    jwtSecret: "======================Relex=Company=Spring============================="
+    jwtExpirationMs: 30000000
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/messager
+    username: postgres
+    password: postgres
+
+  jpa:
+    open-in-view: on
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  liquibase:
+    change-log: classpath:db/changelog/master-changelog.yaml
+
+#server.port=8089
+#
+#spring.datasource.driver-class-name=org.postgresql.Driver
+#spring.datasource.url=jdbc:postgresql://localhost:5432/postgres?currentSchema=messagerJava
+#spring.datasource.username=postgres
+#spring.datasource.password=123123
+#spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
+#spring.jpa.show-sql=true
+#spring.jpa.generate-ddl=false
+#spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+#
+## App Properties
+#relex.app.jwtCookieName= relexCompany
+#relex.app.jwtSecret= ======================Relex=Company=Spring=============================
+#relex.app.jwtExpirationMs= 30000000

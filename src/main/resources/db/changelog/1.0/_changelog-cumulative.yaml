@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - preConditions:
+      - dbms:
+          type: postgresql
+
+  - changeSet:
+      id: 202412052219_001_init_tables
+      author: Nikita Pushkin
+      comment: Create db structure
+      runOnChange: true
+      changes:
+        - sqlFile:
+            path: 202412052219_001_init_tables.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 202412052226_002_init_tables_for_messager
+      author: Nikita Pushkin
+      comment: Create db structure
+      runOnChange: true
+      changes:
+        - sqlFile:
+            path: 202412052226_002_init_tables_for_messager.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 202412052238_003_init_some_users
+      author: Nikita Pushkin
+      comment: Create db structure
+      runOnChange: true
+      changes:
+        - sqlFile:
+            path: 202412052238_003_init_some_users.sql
+            relativeToChangelogFile: true

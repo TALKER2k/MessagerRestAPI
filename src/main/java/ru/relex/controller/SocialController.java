@@ -2,8 +2,8 @@ package ru.relex.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
+//import org.springframework.messaging.handler.annotation.MessageMapping;
+//import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -86,14 +86,14 @@ public class SocialController {
         return ResponseEntity.ok(new MessageResponse("You've successfully delete chat!"));
 
     }
-    @MessageMapping("/chat")
-    @SendTo("/topic/chat")
-    public MessageRequest processMessageFromClient(MessageRequest messageRequest) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        var userSender = userRepository.findByUsername(userDetails.getUsername());
-        var userRecipient = userRepository.findByUsername(messageRequest.getUsername());
-        messageServiceImpl.addMessage(userSender.get(), userRecipient.get(), messageRequest.getMessage());
-        return messageRequest;
-    }
+//    @MessageMapping("/chat")
+//    @SendTo("/topic/chat")
+//    public MessageRequest processMessageFromClient(MessageRequest messageRequest) {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+//        var userSender = userRepository.findByUsername(userDetails.getUsername());
+//        var userRecipient = userRepository.findByUsername(messageRequest.getUsername());
+//        messageServiceImpl.addMessage(userSender.get(), userRecipient.get(), messageRequest.getMessage());
+//        return messageRequest;
+//    }
 }

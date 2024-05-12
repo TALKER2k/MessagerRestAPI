@@ -1,17 +1,18 @@
 package ru.relex.models;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "conversations")
 public class Conversation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "conversations_seq")
+    @SequenceGenerator(name = "conversations_seq", sequenceName = "conversations_sequence", allocationSize = 1)
     private Long id;
 
     @ManyToOne
